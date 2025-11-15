@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <%
+    const fields = {
+        'First name': firstName,
+        'Last name': lastName,
+        'Age': age,
+        'Can vote': canVote
+    };
+    %>
+
+    <% Object.entries(fields).forEach(([key, value]) => { %>
+        <p class="key"><%= key %>:
+            <% if (key === 'Can vote')  { %>
+                <span id=<%= canVote %> class="value"><%= value.toString().toUpperCase() %></span>
+            <% } else { %>
+                <span class="value"><%= value %></span>
+            <% } %>
+        </p>
+    <% }); %>
+</body>
+</html>
